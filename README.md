@@ -1,13 +1,11 @@
 # 💡 What's the Product?
 
-> 24/7 brainstorming superteam  
-> Human-in-the-center flow  
-> Agent + observer structure  
-> Rendering-only React frontend
+- 🤝 24/7 brainstorming superteam
+- 🧑‍💼 Human-in-the-center flow
+- 🕵️ Agent + observer structure
+- 🖥️ Rendering-only React frontend
 
----
-
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 - React (Rendering-only frontend)
 - TypeScript
@@ -16,9 +14,7 @@
 - Zustand (state management)
 - shadcn/ui
 
----
-
-## 🚀 How to Run
+# 🚀 How to Run
 
 ```bash
 # Install dependencies
