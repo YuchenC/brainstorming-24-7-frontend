@@ -31,7 +31,8 @@ export function useWebSocket({ url, roomId, participantId }: UseWebSocketProps) 
         content: content.trim(),
         sender: participantId,
         timestamp: new Date().toISOString(),
-        status: 'pending'
+        status: 'pending',
+        type: 'human_input'
       }
 
       // Add message to local state immediately
@@ -41,7 +42,8 @@ export function useWebSocket({ url, roomId, participantId }: UseWebSocketProps) 
       const messageRequest: MessageCreateRequest = {
         messageId,
         content: message.content,
-        sender: message.sender
+        sender: message.sender,
+        type: 'human_input'
       }
 
       ws.send(JSON.stringify({
@@ -117,9 +119,11 @@ export function useWebSocket({ url, roomId, participantId }: UseWebSocketProps) 
             }
               
             case "message": {
-              // Add new message from others
+              // Only add messages from other participants
               const serverMessage = convertMessageFromServer(data.payload)
-              setMessages(prev => [...prev, serverMessage])
+              if (serverMessage.sender !== participantId) {
+                setMessages(prev => [...prev, serverMessage])
+              }
               break
             }
               
